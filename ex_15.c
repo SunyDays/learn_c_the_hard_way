@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+int main()
+{
+  int ages[] = {23, 43, 12, 89, 2};
+  char *names[] = {"Alan", "Frank", "Mary", "Jhon", "Lisa"};
+
+  int count = sizeof(ages) / sizeof(int);
+
+  int i;
+  for(i = 0; i < count; ++i)
+    printf("%s has %i years alive.\n", names[i], ages[i]);
+  printf("---\n");
+
+  int *cur_age = ages;
+  char **cur_name = names;
+
+  for(i = 0; i < count; ++i)
+    printf("%s has %i years old again.\n", *(cur_name + i), *(cur_age + i));
+  printf("---\n");
+
+  for(i = 0; i < count; ++i)
+    printf("%s has %i years old.\n", cur_name[i], cur_age[i]);
+  printf("---\n");
+
+  for(cur_name = names, cur_age = ages; (cur_age - ages) < count; cur_name++, cur_age++)
+    printf("%s (%p) has %i (%p) years so far.\n", *cur_name, cur_name, *cur_age, cur_age);
+  
+  return 0;
+}
