@@ -21,7 +21,7 @@ void *object_move(void *self, direction direction);
 int object_attack(void *self, int damage);
 void object_new(size_t size, object proto, char *description);
 
-#define NEW(T, N) object_new(sizeof(T), T##proto, N)
+#define NEW(T, N) object_new(sizeof(T), T##_proto, N)
 #define _(N) proto.N
 
 #endif

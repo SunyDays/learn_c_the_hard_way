@@ -64,4 +64,3 @@ void* object_new(size_t size, object proto, char *description)
   else
     return el;
 }
-
