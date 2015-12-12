@@ -3,10 +3,14 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <assert.h>
 #include "ex_19.h"
 
 int monster_attack(void *self, int damage)
 {
+  assert(self);
+  assert(damage >= 0);
+  
   monster *monster = self;
 
   printf("You attack %s!\n", monster->_(description));
@@ -26,6 +30,8 @@ int monster_attack(void *self, int damage)
 
 int monster_init(void *self)
 {
+  assert(self);
+  
   monster *monster = self;
   monster->hit_points = 10;
   return 1;
@@ -35,8 +41,9 @@ object monster_proto = { .init = monster_init, .attack = monster_attack };
 
 void* room_move(void *self, direction direction)
 {
+  assert(self);
+  
   room *room = self, *next = NULL;
-
   if(direction == NORTH && room->north)
   {
     printf("You go north, into:\n");
@@ -63,14 +70,16 @@ void* room_move(void *self, direction direction)
     next = NULL;
   }
 
-  if(next)
-    next->_(describe)(next);
-
+  assert(next);
+  
+  next->_(describe)(next);  
   return next;
 }
 
 int room_attack(void *self, int damage)
 {
+  assert(self);
+  
   room *room = self;
   monster *monster = room->bad_guy;
 
@@ -90,20 +99,23 @@ object room_proto = { .move = room_move, .attack = room_attack };
 
 void* map_move(void *self, direction direction)
 {
+  assert(self);
+  
   map *map = self;
-  room *location = map->location;
-  room *next = NULL;
+  room *location = map->location, *next = NULL;
 
   next = location->_(move)(location, direction);
 
-  if(next)
-    map->location = next;
+  assert(next);
 
+  map->location = next;
   return next;
 }
 
 int map_attack(void *self, int damage)
 {
+  assert(self);
+  
   map *map = self;
   room *location = map->location;
 
@@ -112,8 +124,9 @@ int map_attack(void *self, int damage)
 
 int map_init(void *self)
 {
+  assert(self);
+  
   map *map = self;
-
   room *hall = NEW(room, "The great hall");
   room *throne = NEW(room, "The throne room");
   room *arena = NEW(room, "The arena, with minotaur");
