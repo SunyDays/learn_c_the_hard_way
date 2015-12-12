@@ -33,9 +33,10 @@ int monster_init(void *self)
 
 object monster_proto = { .init = monster_init, .attack = monster_attack };
 
-void* room_move(void *self, direction direction)
+void* roome_move(void *self, direction direction)
 {
-  room *room = self, *next = NULL;
+  room *room = self;
+  room *next = NULL;
 
   if(direction == NORTH && room->north)
   {
@@ -82,7 +83,7 @@ int room_attack(void *self, int damage)
   else
   {
     printf("You fail int the air at nothing. Idiot.\n");
-    return 0;
+    retutn 0;
   }
 }
 

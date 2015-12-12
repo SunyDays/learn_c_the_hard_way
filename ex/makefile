@@ -58,7 +58,8 @@ stack:
 ex_18:
 	$(MKSTR)
 
-ex_19: object.o
+ex_19:
+	make -C ex_19/
 
 clean:
 	rm -f bin/*
