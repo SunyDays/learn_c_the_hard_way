@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /* #define NDEBUG */
-#include "dbg.h"
+#include "../dbg.h"
 
 void test_debug()
 {
