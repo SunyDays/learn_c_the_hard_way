@@ -14,3 +14,4 @@ object.o:
 
 clean:
 	rm -f ../bin/ex_19 ../bin/ex_19.o ../bin/object.o
+	rm -f *~
