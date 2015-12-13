@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+
+/* #define NDEBUG */
 #include "dbg.h"
 
 void test_debug()
@@ -98,15 +100,24 @@ int main(int argc, char **argv)
   check(argc == 2, "Need an argument.");
 
   test_debug();
+  printf("--------------\n");
   test_log_err();
+  printf("--------------\n");
   test_log_warn();
+  printf("--------------\n");
   test_log_info();
+  printf("--------------\n");
 
   check(test_check("ex_20/ex_20.c") == 0, "failed with ex_20.c");
-  check(test_check(argv[1]) == -1, "failed with argv");
+  printf("--------------\n");
+  check(test_check(argv[1]) == 0, "failed with argv");
+  printf("--------------\n");
   check(test_sentinel(1) == 0, "test_sentinel failed");
+  printf("--------------\n");
   check(test_sentinel(100) == -1, "test_sentinel failed");
+  printf("--------------\n");
   check(test_check_mem() == -1, "test_check_mem failed");
+  printf("--------------\n");
   check(test_check_debug() == -1, "test_check_debug failed");
   
   exit(EXIT_SUCCESS);
