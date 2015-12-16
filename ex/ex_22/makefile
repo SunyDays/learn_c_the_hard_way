@@ -12,6 +12,8 @@ ex_22_main.o:
 ex_22.o:
 	$(CC) -c ex_22.c -o ../bin/$@ $(CFLAGS)
 
-clean:
+clean: remove_temp
 	rm -f ../bin/ex_22_main ../bin/ex_22_main.o ../bin/ex_22.o
+
+remove_temp:
 	rm -f *~

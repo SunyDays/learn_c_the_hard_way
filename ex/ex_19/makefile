@@ -12,6 +12,8 @@ ex_19.o:
 object.o:
 	$(CC) -c object.c -o ../bin/$@ $(CFLAGS)
 
-clean:
+clean: remove_temp
 	rm -f ../bin/ex_19 ../bin/ex_19.o ../bin/object.o
+
+remove_temp:
 	rm -f *~
