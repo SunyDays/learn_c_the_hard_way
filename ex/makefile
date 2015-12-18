@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -g
 MKSTR = $(CC) $@.c -o bin/$@ $(CFLAGS)
 
-all: ex_1 ex_3 ex_4 ex_5 ex_6 ex_7 ex_8 ex_9 ex_10 ex_11 ex_12 ex_13 ex_14 ex_15 ex_16 ex_17 stack ex_18 ex_19_dir ex_20_dir ex_22_dir ex_23 ex_24 ex_25
+all: ex_1 ex_3 ex_4 ex_5 ex_6 ex_7 ex_8 ex_9 ex_10 ex_11 ex_12 ex_13 ex_14 ex_15 ex_16 ex_17 stack ex_18 ex_19_dir ex_20_dir ex_22_dir ex_23 ex_24 ex_25 ex_26_dir
 
 ex_1:
 	$(MKSTR)
@@ -75,6 +75,9 @@ ex_24:
 
 ex_25:
 	$(MKSTR)
+
+ex_26_dir:
+	make -C ex_26/
 
 clean: remove_temp
 	rm -f bin/*
