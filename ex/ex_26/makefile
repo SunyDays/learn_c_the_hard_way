@@ -30,7 +30,3 @@ clean: remove_temp
 
 remove_temp:
 	rm -f *~
-	make remove_temp -C bstrlib/
-	make remove_temp -C commands/
-	make remove_temp -C db/
-	make remove_temp -C shell/
