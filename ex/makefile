@@ -87,3 +87,4 @@ remove_temp:
 	make remove_temp -C ex_19/
 	make remove_temp -C ex_20/
 	make remove_temp -C ex_22/
+	make remove_temp -C ex_26/

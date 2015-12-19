@@ -6,7 +6,7 @@
 #include "../bstrlib/bstrlib.h"
 #include "../../dbg.h"
 
-static FILE *db_open(const char *path, const char *mode)
+static FILE* db_open(const char *path, const char *mode)
 {
   return fopen(path, mode);
 }
