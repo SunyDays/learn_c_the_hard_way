@@ -1,4 +1,5 @@
-#set -e
+# exit after first error
+set -e
 
 # go somewhere safe
 cd /tmp
