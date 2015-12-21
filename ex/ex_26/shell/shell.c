@@ -13,16 +13,16 @@ int shell_exec(shell template, ...)
   va_list argp;
   va_start(argp, template);
 
-  const char *key, *arg;
+  const char *key, *val;
   for(key = va_arg(argp, const char*); key != NULL; key = va_arg(argp, const char*))
   {
-    arg = va_arg(argp, const char*);
+    val = va_arg(argp, const char*);
     
     int i;
     for(i = 0; template.args[i] != NULL; ++i)
       if(strcmp(template.args[i], key) == 0)
       {
-	template.args[i] = arg;
+	template.args[i] = val;
 	break;
       }
   }
@@ -94,7 +94,7 @@ shell WGET_SH =
 {
   .exe = "wget",
   .dir = "/tmp",
-  .args = {"wget", "URL", NULL}
+  .args = {"wget", "URL", "-O", "TARGET", NULL}
 };
 
 shell CONFIGURE_SH =

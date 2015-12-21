@@ -3,9 +3,13 @@ PREFIX ?= /usr/local
 CFLAGS = -Wall -Wextra -g -I ${PREFIX}/apr/include/apr-1 -I ${PREFIX}/apr/include/apr-util-1
 LDFLAGS = -L ${PREFIX}/apr/lib -lapr-1 -pthread -laprutil-1
 
-all:devpkg
+all: devpkg
 
-devpkg: bstrlib.o db.o shell.o commands.o
+devpkg: devpkg.o bstrlib.o db.o shell.o commands.o
+	$(CC) bin/devpkg.o bin/bstrlib.o bin/db.o bin/shell.o bin/commands.o -o bin/$@ $(CFLAGS)
+
+devpkg.o:
+	$(CC) -c devpkg.c -o bin/$@ $(CFLAGS)
 
 bstrlib.o:
 	make -C bstrlib/
@@ -30,3 +34,7 @@ clean: remove_temp
 
 remove_temp:
 	rm -f *~
+	make remove_temp -C bstrlib/
+	make remove_temp -C db/
+	make remove_temp -C shell/	
+	make remove_temp -C commands/
