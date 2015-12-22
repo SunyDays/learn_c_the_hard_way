@@ -4,7 +4,6 @@
 #include <apr_getopt.h>
 #include <apr_strings.h>
 #include <apr_lib.h>
-#include <apr_pools.h>
 
 #include "../dbg.h"
 #include "db/db.h"
