@@ -4,6 +4,7 @@
 #include <apr_getopt.h>
 #include <apr_strings.h>
 #include <apr_lib.h>
+#include <apr_pools.h>
 
 #include "../dbg.h"
 #include "db/db.h"
@@ -45,10 +46,6 @@ int main(int argc, const char const **argv)
       case 'i':
 	install_opts = optarg;
 	break;
-
-      /* case 'd': */
-	
-      /* 	break; */
 
       case 'S':
 	request = COMMAND_INIT;

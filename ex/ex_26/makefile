@@ -6,7 +6,7 @@ LDFLAGS = -L ${PREFIX}/apr/lib -lapr-1 -pthread -laprutil-1
 all: devpkg
 
 devpkg: devpkg.o bstrlib.o db.o shell.o commands.o
-	$(CC) bin/devpkg.o bin/bstrlib.o bin/db.o bin/shell.o bin/commands.o -o bin/$@ $(CFLAGS)
+	$(CC) bin/devpkg.o bin/bstrlib.o bin/db.o bin/shell.o bin/commands.o -o ../bin/$@ $(CFLAGS) $(LDFLAGS)
 
 devpkg.o:
 	$(CC) -c devpkg.c -o bin/$@ $(CFLAGS)
