@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <assert.h>
 
 #undef NDEBUG
 #include "dbg.h"
@@ -14,8 +13,8 @@ void copy(char to[], char from[])
 
 int safercopy(int to_len, char to[], int from_len, char from[])
 {
-  assert(to != NULL && from != NULL && "to and from can't be NULL");
-  if(from_len < 0 || to_len <= 0) return -1;
+  check(to != NULL && from != NULL, "to and from can't be NULL");
+  if(from_len < 0 || to_len <= 0) goto error;
   
   int max = to_len < from_len ? to_len - 1 : from_len;
   int i;
@@ -24,6 +23,9 @@ int safercopy(int to_len, char to[], int from_len, char from[])
     to[i] = i < max ? from[i] : '\0';
   
   return i;
+
+ error:
+  return -1;
 }
 
 int main()
