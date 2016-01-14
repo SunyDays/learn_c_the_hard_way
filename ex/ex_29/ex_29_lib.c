@@ -8,27 +8,27 @@ int print_a_message(const char *msg)
   return 0;
 }
 
-int uppercase(const char *msg)  
+int uppercase(int msg_len, const char *msg)
 {
   int i;
-  for(i = 0; msg[i] != '\0'; ++i)
+  for(i = 0; i < msg_len; ++i)
     printf("%c", toupper(msg[i]));
   printf("\n");
 
   return 0;
 }
 
-int lowercase(const char *msg)  
+int lowercase(int msg_len, const char *msg)  
 {
   int i;
-  for(i = 0; msg[i] != '\0'; ++i)
+  for(i = 0; i < msg_len; ++i)
     printf("%c", tolower(msg[i]));
   printf("\n");
 
   return 0;
 }
 
-int fail_on_purpose(const char *msg)
+int fail_on_purpose(int msg_len, const char *msg)
 {
   return 1;
 }
