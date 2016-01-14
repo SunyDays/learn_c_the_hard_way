@@ -4,7 +4,7 @@
 #include <dlfcn.h>
 #include "../dbg.h"
 
-typedef int (*lib_function)(int msg_len, const char *data);
+typedef int (*lib_function)(int data_len, const char *data);
 
 int main(int argc, char **argv)
 {
